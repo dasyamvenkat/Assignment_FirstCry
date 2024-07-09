@@ -70,7 +70,7 @@ namespace Assignment_FirstCry.BaseClasses
             //options.AddArgument("--headless");
             options.AddArgument("--start-maximized");
 
-            // options.DebuggerAddress = "127.0.0.1";
+            
             ChromeDriver driver = new ChromeDriver(options);
             return driver;
         }

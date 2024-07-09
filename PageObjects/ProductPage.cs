@@ -1,6 +1,7 @@
 ﻿using Assignment_FirstCry.BaseClasses;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
@@ -18,6 +19,9 @@ namespace Assignment_FirstCry.PageObjects
         IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
         WebDriverWait wait;
 
+        Actions actions = new Actions(_driver);
+
+
         [FindsBy(How = How.XPath, Using = "//div[@class = 'R14_61 p-prod-desc']")]
         private IWebElement productDetails;
 
@@ -30,7 +34,7 @@ namespace Assignment_FirstCry.PageObjects
         [FindsBy(How = How.Id, Using = "txtPincode")]
         private IWebElement pincodeField;
         
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"btnPincodeSubmit\"]")]
+        [FindsBy(How = How.XPath, Using = "(//*[@id=\"btnPincodeSubmit\"])[1]")]
         private IWebElement submitPinCode;
 
         [FindsBy(How = How.Id, Using = "error-pincode")]
@@ -81,7 +85,7 @@ namespace Assignment_FirstCry.PageObjects
         [FindsBy(How = How.XPath, Using = "//div[contains(@class,'cpn_offrs_disc_swiper')]/div/div")]
         private IList<IWebElement> offers;
 
-        [FindsBy(How = How.XPath, Using = "//*[normalize-space()='Question:']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='qna-col2 R14_42']")]
         private IWebElement qaList;
 
         [FindsBy(How = How.Id, Using = "email_addr_value")]
@@ -147,7 +151,8 @@ namespace Assignment_FirstCry.PageObjects
         // Validates QA section in product details
         public bool VerifyQA()
         {
-            js.ExecuteScript("window.scrollBy(0,5000)", "");
+            actions.ScrollByAmount(0,5000).Perform();
+            //js.ExecuteScript("window.scrollBy(0,5000)", "");
             Thread.Sleep(3000);
             // _driver.FindElement(By.Id("txtQuestion")).SendKeys("Hello");
             return qaList.Displayed;
@@ -310,6 +315,7 @@ namespace Assignment_FirstCry.PageObjects
         public void EnterPin(string pin)
         {
             pincodeField.SendKeys(pin);
+            Thread.Sleep(3000);
             submitPinCode.Click();
         }
 
@@ -339,7 +345,8 @@ namespace Assignment_FirstCry.PageObjects
 
         public string PersonalizedText()
         {
-            js.ExecuteScript("window.scrollBy(0,1800)", "");
+            actions.ScrollByAmount(0, 1800).Perform();
+          //  js.ExecuteScript("window.scrollBy(0,1800)", "");
             By sectionName = By.XPath("//*[@class='B16_42 yml-heading p-heading']");
            // return wait.Until(ExpectedConditions.ElementExists(sectionName)).Text;
             return recom.Text;
@@ -348,7 +355,8 @@ namespace Assignment_FirstCry.PageObjects
 
         public string RecommondationsText()
         {
-            js.ExecuteScript("window.scrollBy(0,4800)");
+            actions.ScrollByAmount(0, 1800).Perform();
+            //js.ExecuteScript("window.scrollBy(0,1800)");
             //wait.Until(ExpectedConditions.)
             Thread.Sleep(2000);
             return fbtg.Text;

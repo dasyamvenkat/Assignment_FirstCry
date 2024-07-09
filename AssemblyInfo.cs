@@ -22,4 +22,4 @@ using System.Runtime.InteropServices;
 [assembly: Parallelizable(ParallelScope.All)]
 
 //Number of browsers
-[assembly: LevelOfParallelism(5)]
+[assembly: LevelOfParallelism(1)]

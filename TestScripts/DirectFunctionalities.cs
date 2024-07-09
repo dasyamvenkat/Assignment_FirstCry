@@ -422,7 +422,7 @@ namespace Assignment_FirstCry.TestScripts
             productPage.OpenCart();
             cartPage = new CartPage();
             string olddate = cartPage.GetDate();
-            cartPage.PinCodechange(dataFromExcel["ValidPincodeDelhi"]);
+            cartPage.PinCodechange(dataFromExcel["ValidPincodeRural"]);
             Thread.Sleep(3000);
             string newdate = cartPage.GetDate();
             ClassicAssert.That(olddate, Is.Not.EqualTo(newdate));

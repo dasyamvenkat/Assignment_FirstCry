@@ -75,8 +75,21 @@ namespace Assignment_FirstCry.PageObjects
         //Returns Visible Products Listed in Cart
         public List<string> ValidateCartProducts(List<string> addedProducts)
         {
-            return CommonPage.ConvertToDynamicList(productsinCart, "string");
+            return ConvertToList(productsinCart);
         }
+
+        public List<string> ConvertToList(IList<IWebElement> results)
+        {
+            List<string> listOfProdNames = new List<string>();
+
+            for (int i = 0; i < results.Count; i++)
+            {
+                string text = results[i].Text.Replace(" ", "");
+                listOfProdNames.Add(text);
+            }
+            return listOfProdNames;
+        }
+
 
         //Move Product in Cart to ShortList
         public void MoveToShortList()

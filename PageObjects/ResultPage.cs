@@ -133,13 +133,12 @@ namespace Assignment_FirstCry.PageObjects
             for (int i = 0; i < num; i++)
             {
                 wait.Until(ExpectedConditions.ElementToBeClickable(listOfProducts[i])).Click();
-                //listOfProducts[i].Click();
-                listOfProds.Add(listOfProducts[i].Text.Split(" -")[0]);
+                listOfProds.Add(listOfProducts[i].GetAttribute("title").ToString().Replace(" ", ""));
             }
-            List<string> productNames = CommonPage.ConvertToDynamicList(listOfProducts, "string");
-
-            return productNames.GetRange(0,num);
+            return listOfProds;
         }
+        
+      
 
         public List<string> ConvertoList(IList<IWebElement> results)
         {
