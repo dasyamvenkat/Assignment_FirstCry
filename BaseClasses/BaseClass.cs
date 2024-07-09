@@ -52,6 +52,7 @@ namespace Assignment_FirstCry.BaseClasses
             var timeouts = _driver.Manage().Timeouts();
             timeouts.PageLoad = TimeSpan.FromSeconds(ConfigurationHelper.Get<int>("PageLoadTimeout"));
             //Open First Cry Website
+            //_driver.Manage().Window.Maximize();
             NavigateToUrl(ConfigurationHelper.Get<string>("Url"));
             _log.Info(TestContext.CurrentContext.Test.Name + "TestCase Started");
 
@@ -62,7 +63,9 @@ namespace Assignment_FirstCry.BaseClasses
         {
             FirefoxOptions options = new FirefoxOptions();
             options.AddArgument("--start-maximized");
+            
             FirefoxDriver driver = new FirefoxDriver(options);
+            driver.Manage().Window.Maximize();
             return driver;
         }
 
