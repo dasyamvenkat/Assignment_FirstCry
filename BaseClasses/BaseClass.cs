@@ -60,7 +60,9 @@ namespace Assignment_FirstCry.BaseClasses
         }
         private static FirefoxDriver GetFirefoxDriver()
         {
-            FirefoxDriver driver = new FirefoxDriver();
+            FirefoxOptions options = new FirefoxOptions();
+            options.AddArgument("--start-maximized");
+            FirefoxDriver driver = new FirefoxDriver(options);
             return driver;
         }
 
