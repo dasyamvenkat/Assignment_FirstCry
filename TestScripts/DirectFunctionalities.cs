@@ -39,7 +39,7 @@ namespace Assignment_FirstCry.TestScripts
         // 2. Apply Filters on Search Results - Valid Filters
 
         [Test] 
-       // [TestCase(dataFromExcel["BandFilter"])]
+       
         public void ValidFilter()
         {
             homePage = new HomePage();
