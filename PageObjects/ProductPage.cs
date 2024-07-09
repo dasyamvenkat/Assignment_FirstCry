@@ -57,25 +57,11 @@ namespace Assignment_FirstCry.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//*[@class=\"span-pincode M14_link\"]")]
         private IWebElement changePinCode;
-        //[FindsBy(How = How.Id, Using = "sizechart")]
-        //private IWebElement sizeChart;
-
-
+      
         [FindsBy(How = How.XPath, Using = "//a[@id='sizechart']")]
         private IWebElement sizeChart;
 
-        //[FindsBy(How = How.Id, Using = "DivWaist")]
-        //private IWebElement waistSize;
-
-        //[FindsBy(How = How.Id, Using = "DivBottomLength")]
-        //private IWebElement bottomLength;
-
-        //[FindsBy(How = How.ClassName, Using = "custom-select")]
-        //private IWebElement sizeOptions;
-      
-        //[FindsBy(How = How.ClassName, Using = "select-items")]
-        //private IWebElement selectSize;
-
+    
         [FindsBy(How = How.XPath, Using = "//span[contains(text(),'GO TO CART')]")]
         private IWebElement goToCart;
 
@@ -97,11 +83,6 @@ namespace Assignment_FirstCry.PageObjects
         [FindsBy(How = How.XPath, Using = "//input[contains(@class,'btn-notif')]")]
         private IWebElement notifyButton;
 
-        //[FindsBy(How = How.XPath, Using = "//input[@id='txtPincode']")]
-        //private IWebElement pinEnterBox;
-
-        //[FindsBy(How = How.XPath, Using = "//button[@id='btnPincodeSubmit']")]
-        //private IWebElement pinSubmit;
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"tat_msg\"]//b")]
         private IWebElement date;
@@ -281,7 +262,7 @@ namespace Assignment_FirstCry.PageObjects
         {
             Thread.Sleep(1000);
             js.ExecuteScript("window.scrollBy(0,1800)", "");
-            //productRating.Click();
+           
         }
 
         // Validates Rating and reviews
@@ -298,7 +279,7 @@ namespace Assignment_FirstCry.PageObjects
             string[] formats = { "M/d/yyyy", "yyyy-MM-dd", "dd-MM-yyyy" };
             bool parsed = DateTime.TryParseExact(reviewDate.Text, formats, null,
                                                 System.Globalization.DateTimeStyles.None, out dateTime);
-            //DateTime userReviewDate =  DateTime.ParseExact(reviewDate.Text, "dd/MM/yyyy", null);
+           
             if(dateTime >= onemonthbackdate)
             {
                 return true;

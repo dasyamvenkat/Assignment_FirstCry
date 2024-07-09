@@ -54,7 +54,7 @@ namespace Assignment_FirstCry.TestScripts
         public void ValidSorting()
         {
             homePage = new HomePage();
-            resultPage = homePage.EnterSearchText("baby stroller");
+            resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey"]);
             resultPage.SelectSortPriceOption("Price");
             ClassicAssert.IsTrue(resultPage.VerifyResultsSortingPriceOrder("asc"));
         }
@@ -64,7 +64,7 @@ namespace Assignment_FirstCry.TestScripts
         public void ValidateProdDetails()
         {
             homePage = new HomePage();
-            resultPage = homePage.EnterSearchText("baby stroller");
+            resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey"]);
             productPage = resultPage.OpenFirstProductLink();
             WindowHandling();
             ClassicAssert.IsTrue(productPage.ValidateProductDetails());
@@ -75,7 +75,7 @@ namespace Assignment_FirstCry.TestScripts
         public void ValidateAddToCart()
         {
             homePage = new HomePage();
-            resultPage = homePage.EnterSearchText("baby toys");
+            resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey2"]);
             productPage = resultPage.OpenFirstProductLink();
             WindowHandling();
             productPage.AddToCart();
@@ -89,10 +89,11 @@ namespace Assignment_FirstCry.TestScripts
             List<string> cartProducts = new List<string>();
 
             homePage = new HomePage();
-            resultPage = homePage.EnterSearchText("baby toys");
+            resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey2"]);
             listOfProds = resultPage.OpenNumberofProducts(3);
             productPage = new ProductPage();
             productPage.AddToCartMutipleProd();
+            Thread.Sleep(1000);
             cartPage = resultPage.OpenCart();
             cartProducts = cartPage.ValidateCartProducts(listOfProds);
             ClassicAssert.AreEqual(listOfProds.OrderBy(x => x), cartProducts.OrderBy(y => y));
@@ -104,7 +105,7 @@ namespace Assignment_FirstCry.TestScripts
         public void RemoveProductfromCart()
         {
             homePage = new HomePage();
-            resultPage = homePage.EnterSearchText("baby toys");
+            resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey2"]);
             productPage = resultPage.OpenFirstProductLink();
             WindowHandling();
             productPage.AddToCart();
@@ -132,12 +133,12 @@ namespace Assignment_FirstCry.TestScripts
         public void CheckProductAvailabilitybyLocation()
         {
             //    homePage = new HomePage();
-            //    resultPage = homePage.EnterSearchText("baby toys");
+            //    resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey2"]);
             //    productPage = resultPage.OpenFirstProductLink();
             NavigateToUrl(dataFromExcel["ProductLink1"]);
             productPage = new ProductPage();
             //WindowHandling();
-            productPage.EnterPinCode("506003");
+            productPage.EnterPinCode(dataFromExcel["ValidPincode"]);
             ClassicAssert.IsTrue(productPage.IsDeliveryAvaiable());
         }
 
@@ -235,7 +236,7 @@ namespace Assignment_FirstCry.TestScripts
             List<double> priceList = new List<double>();
             double totalPrice = 0;
             homePage = new HomePage();
-            resultPage = homePage.EnterSearchText("tops");
+            resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey3"]);
             listOfProds = resultPage.OpenNumberofProducts(3);
             priceList = resultPage.GetPriceOfProducts(3);
             totalPrice = Math.Round(priceList.Sum());
@@ -281,7 +282,7 @@ namespace Assignment_FirstCry.TestScripts
             List<double> priceList = new List<double>();
             double totalPrice = 0;
             homePage = new HomePage();
-            resultPage = homePage.EnterSearchText("baby toys");
+            resultPage = homePage.EnterSearchText(dataFromExcel["ValidSearchKey2"]);
             resultPage.OpenNumberofProducts(3);
             priceList = resultPage.GetPriceOfProducts(3);
             totalPrice = Math.Round(priceList.Sum());
@@ -291,8 +292,7 @@ namespace Assignment_FirstCry.TestScripts
             cartPage = productPage.OpenCart();
             cartPage.SelectQtyFromCart();
             ClassicAssert.That(cartPage.GetOrderTotal(), Is.GreaterThanOrEqualTo(totalPrice));
-            //ClassicAssert.That(cartPage.GetOrderTotal(), Is.EqualTo(totalPrice));
-            //ClassicAssert.IsTrue(val);
+          
         }
 
         // 24. Real-time Delivery Date Estimation
@@ -319,7 +319,7 @@ namespace Assignment_FirstCry.TestScripts
         {
             List<string> suggestions = new List<string>();
             homePage = new HomePage();
-            suggestions = homePage.SearchSuggestions("stretch jeans");
+            suggestions = homePage.SearchSuggestions(dataFromExcel["ValidSearchKey4"]);
 
             ClassicAssert.IsNotNull(suggestions);
         }

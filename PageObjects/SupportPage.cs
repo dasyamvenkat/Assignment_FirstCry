@@ -17,8 +17,7 @@ namespace Assignment_FirstCry.PageObjects
     [Parallelizable(ParallelScope.All)]
     public class SupportPage : BaseClass
     {
-        //[FindsBy(How = How.Id, Using = "search_box")]
-        //private IWebElement searchBox;
+       
         WebDriverWait wait;
 
         [FindsBy(How = How.XPath, Using = "//p[@class='M14_21']")]
