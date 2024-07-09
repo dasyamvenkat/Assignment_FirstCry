@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 //[assembly: Guid("65e98c71-fa05-4800-801e-3b2b4c267daa")]
 
 
-//To define [Test] [Parallelizable(ParallelScope.Self)] attributes
+//To define [Test] [Parallelizable] attributes
 [assembly: Parallelizable(ParallelScope.All)]
 
 //Number of browsers

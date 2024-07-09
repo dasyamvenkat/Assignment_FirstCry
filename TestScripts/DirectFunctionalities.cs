@@ -27,7 +27,7 @@ namespace Assignment_FirstCry.TestScripts
         // 1. Search for Products - Valid Search
      
         [Test]
-        [Parallelizable(ParallelScope.Self)]
+        [Parallelizable]
         public void ValidSearchKeyword()
         {
             homePage = new HomePage();
@@ -38,7 +38,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 2. Apply Filters on Search Results - Valid Filters
 
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
        // [TestCase(dataFromExcel["BandFilter"])]
         public void ValidFilter()
         {
@@ -49,7 +49,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 3. Sort Search Results - Valid Sorting
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void ValidSorting()
         {
             homePage = new HomePage();
@@ -59,7 +59,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 4. View Product Details
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void ValidateProdDetails()
         {
             homePage = new HomePage();
@@ -70,7 +70,7 @@ namespace Assignment_FirstCry.TestScripts
         }
         // 5. Add Product to Cart
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void ValidateAddToCart()
         {
             homePage = new HomePage();
@@ -81,7 +81,7 @@ namespace Assignment_FirstCry.TestScripts
             ClassicAssert.IsTrue(productPage.IsItemAddedToCart());
         }
         // 6. View Cart
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void ValidateCartDetails()
         {
             List<string> listOfProds = new List<string>();
@@ -99,7 +99,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 7. Remove Product from Cart
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void RemoveProductfromCart()
         {
             homePage = new HomePage();
@@ -113,7 +113,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 8. Save Product for Later
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void MoveProductToShortList()
         {
 
@@ -126,7 +126,7 @@ namespace Assignment_FirstCry.TestScripts
         }
         // 9. Check Product Availability by Location
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void CheckProductAvailabilitybyLocation()
         {
             //    homePage = new HomePage();
@@ -140,7 +140,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 11. View Customer Reviews and Ratings
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void ViewCustomerReviewandRatings()
         {
 
@@ -151,7 +151,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 12. Browse Categories
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void BrowseCategories()
         {
             commonPage = new CommonPage();
@@ -160,7 +160,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 13. Check Offers and Discounts
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void CheckOffersandDiscounts()
         {
             NavigateToUrl(dataFromExcel["ProductLink"]);
@@ -170,7 +170,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 14. View Product Images
 
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void ProductImage()
         {
             NavigateToUrl(dataFromExcel["ProductLink"]);
@@ -179,7 +179,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 15. Access Help and Support
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void AccessHelpandSupport()
         {
             homePage = new HomePage();
@@ -190,7 +190,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 16. Check Size Guide
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void SizeGuide()
         {
 
@@ -204,7 +204,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 17. Product Q&A Section
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void ProductQASection()
         {
             NavigateToUrl(dataFromExcel["ProductWithQA"]);
@@ -213,7 +213,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 19. Navigate Using Breadcrumbs
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void NavigateUsingBreadcrumbs()
         {
             commonPage = new CommonPage();
@@ -225,7 +225,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 20. Dynamic Cart Summary
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void DynamicCartSummary()
         {
             List<string> listOfProds = new List<string>();
@@ -246,7 +246,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 21. Dynamic Price Updates
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void PriceUpdate()
         {
             NavigateToUrl(dataFromExcel["ProductLink"]);
@@ -259,7 +259,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 22.	Dynamic Review and Rating Updates
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void DynamicReview()
         {
 
@@ -271,7 +271,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 23. Dynamic Cart Total Calculation
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void DynamicCartTotal()
         {
             List<string> cartProducts = new List<string>();
@@ -293,7 +293,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 24. Real-time Delivery Date Estimation
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void RealtimeDeliveryDateEstimation()
         {
             _driver.Manage().Cookies.DeleteAllCookies();
@@ -309,7 +309,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 27. Dynamic Search Suggestions
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void DynamicSearchSuggestions()
         {
             List<string> suggestions = new List<string>();
@@ -320,7 +320,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 28. Dynamic Category Update Based on Location
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void PincodeHomePage()
         {
             homePage = new HomePage();
@@ -330,7 +330,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 29. Dynamic Inventory Alerts
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void DynamicInventoryAlerts()
         {
             NavigateToUrl(dataFromExcel["OutofStockProduct"]);
@@ -340,7 +340,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 34. Dynamic Product Recommendations
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void ProductRecommendations()
         {
             NavigateToUrl(dataFromExcel["ProductLink"]);
@@ -350,7 +350,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 35. Search for Products - Invalid Search
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void InValidSearchKeyword()
         {
             homePage = new HomePage();
@@ -360,7 +360,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 37. Add Out-of-Stock Product to Cart
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void AddOutofCartProduct()
         {
             NavigateToUrl(dataFromExcel["OutofStockProduct"]);
@@ -370,7 +370,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 38. View Product Details - Invalid Product
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void InvalidProduct()
         {
             NavigateToUrl(dataFromExcel["InvalidUrl"]);
@@ -382,7 +382,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 39. Check Product Availability - Invalid PIN Code
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void InvalidPincode()
         {
             _driver.Manage().Cookies.DeleteAllCookies();
@@ -396,7 +396,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 45. Dynamic Data Corruption During Checkout
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void Corrupt()
         {
             homePage = new HomePage();
@@ -411,7 +411,7 @@ namespace Assignment_FirstCry.TestScripts
 
         }
         // 49. Dynamic Delivery Address Validation
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void DeliveryAddressValidation()
         {
             homePage = new HomePage();
@@ -431,7 +431,7 @@ namespace Assignment_FirstCry.TestScripts
 
         // 53. Dynamic Navigation Bar Updates
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void NavigationBars()
         {
             homePage = new HomePage();
@@ -443,7 +443,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 54. Real-time Stock Alerts for Subscribed Products
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void StockAlertPresenceForOutofStock()
         {
             NavigateToUrl(dataFromExcel["OutofStockProduct"]);
@@ -452,7 +452,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 55. Dynamic Content Personalization
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void ContentPersonalization()
         {
             NavigateToUrl(dataFromExcel["ProductLink"]);
@@ -463,7 +463,7 @@ namespace Assignment_FirstCry.TestScripts
         }
 
         // 56. Real-time Update of User Reviews
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void RealTimeUserReviews()
         {
 
@@ -476,7 +476,7 @@ namespace Assignment_FirstCry.TestScripts
         // 57. Dynamic Shipping Cost Calculation
        
         
-       [Test] [Parallelizable(ParallelScope.Self)]
+       [Test] [Parallelizable]
         public void ShippingCost()
         {
             _driver.Manage().Cookies.DeleteAllCookies();
@@ -496,7 +496,7 @@ namespace Assignment_FirstCry.TestScripts
 
 
         // 58. Dynamic Update of Promotion Banners
-        [Test] [Parallelizable(ParallelScope.Self)]
+        [Test] [Parallelizable]
         public void BannerTest()
         {
 

@@ -66,10 +66,9 @@ namespace Assignment_FirstCry.PageObjects
             {
                 for (int i = 0; i < results.Count; i++)
                 {
-                     string text = results[i].Text;
-                    if(text.Length>49)
-                    text = results[i].Text.Substring(0,49).ToString();
-
+                    string text = "";
+                   
+                    text= results[i].GetAttribute("title").ToString();
                     listOfProdNames.Add(text);
                 }
                 return listOfProdNames;

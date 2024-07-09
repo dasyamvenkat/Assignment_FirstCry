@@ -147,7 +147,7 @@ namespace Assignment_FirstCry.PageObjects
 
             for (int i = 0; i < results.Count; i++)
             {
-                string text = results[i].Text;
+                string text = results[i].GetAttribute("title").ToString();
                 listOfProdNames.Add(text);
             }
             return listOfProdNames;

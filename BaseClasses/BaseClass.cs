@@ -45,10 +45,7 @@ namespace Assignment_FirstCry.BaseClasses
                     _driver = GetChromeDriver();
                     break;
 
-                case "Edge":
-
-                    _driver = GetIEDriver();
-                    break;
+              
             }
             _log.Info("Driver Opened");
           
@@ -78,25 +75,21 @@ namespace Assignment_FirstCry.BaseClasses
             return driver;
         }
 
-        private static InternetExplorerDriver GetIEDriver()
-        {
-            InternetExplorerDriver driver = new InternetExplorerDriver();
-            return driver;
-        }
+       
 
 
         [TearDown]
         public void Cleanup()
         {
             _driver.Quit();
-            _driver.Dispose();
+          //  _driver.Dispose();
         }
 
         [OneTimeTearDown]
         public void CleanupFinal()
         {
-            _driver.Quit();
-            _driver.Dispose();
+             _driver.Quit();
+            //_driver.Dispose();
         }
 
         //[TearDown]
