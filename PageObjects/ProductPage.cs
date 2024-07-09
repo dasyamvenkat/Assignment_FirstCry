@@ -314,6 +314,7 @@ namespace Assignment_FirstCry.PageObjects
         // Same as - EnterPinCode - needs to discuss
         public void EnterPin(string pin)
         {
+            Thread.Sleep(2000);
             pincodeField.SendKeys(pin);
             Thread.Sleep(3000);
             submitPinCode.Click();

@@ -78,37 +78,25 @@ namespace Assignment_FirstCry.BaseClasses
        
 
 
+       
+
         [TearDown]
         public void Cleanup()
         {
-            _driver.Quit();
-          //  _driver.Dispose();
+            //Take the screenshot if Test Case failed
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                var screenshot = ((ITakesScreenshot)_driver).GetScreenshot();
+                string fileName = String.Format(@"{0}\Screenshot" + TestContext.CurrentContext.Test.Name + DateTime.Now.ToShortDateString() + ".jpg", Environment.CurrentDirectory);
+                screenshot.SaveAsFile(fileName);
+            }
+            _log.Info(TestContext.CurrentContext.Test.Name + "  -  " + TestContext.CurrentContext.Result.Outcome.Status);
+            if (_driver == null)
+            {
+                _driver.Quit();
+            }
+            _driver.Dispose();
         }
-
-        [OneTimeTearDown]
-        public void CleanupFinal()
-        {
-             _driver.Quit();
-            //_driver.Dispose();
-        }
-
-        //[TearDown]
-        //public void Cleanup()
-        //{
-        //    //Take the screenshot if Test Case failed
-        //    if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
-        //    {
-        //        var screenshot = ((ITakesScreenshot)_driver).GetScreenshot();
-        //        string fileName = String.Format(@"{0}\Screenshot" + TestContext.CurrentContext.Test.Name + DateTime.Now.ToShortDateString() + ".jpg", Environment.CurrentDirectory);
-        //        screenshot.SaveAsFile(fileName);
-        //    }
-        //    _log.Info(TestContext.CurrentContext.Test.Name + "  -  " + TestContext.CurrentContext.Result.Outcome.Status);
-        //    if (_driver == null)
-        //    {
-        //        _driver.Quit();
-        //    }
-        //    _driver.Dispose();
-        //}
 
 
         //To handle 2 Windows
